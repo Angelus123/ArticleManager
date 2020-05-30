@@ -74,7 +74,7 @@ app.use(expressValidator({
    
     Article.find({}, (err, artcls) => { 
         if(err){
-         console.log(err);
+         console.log('Error is'+ err);
      }else{
 
             res.render('index', {
