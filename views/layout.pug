@@ -1,0 +1,54 @@
+doctype html
+html
+    head
+        title Knowledge base
+        link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+        link(rel='stylesheet' href='/css/style.css')
+
+body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.navbar-inverse
+        .container
+            a.navbar-brand(href='/') KnowledgeBase
+                button.navbar-toggler.collapsed(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='true', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+
+            #navbarsExampleDefault.collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href='/')
+                            | Home 
+                            span.sr-only (current)
+                    li.nav-item
+                        a.nav-link(href='/add')
+                            |Add Article 
+                            span.sr-only (current)
+                
+                  
+                form.form-inline.my-2.my-lg-0
+                    input.form-control.mr-sm-0(type='text', placeholder='Search', aria-label='Search')
+                    button.btn.btn-secondary.my-2.my-sm-0.mr-sm-2(type='submit') Search 
+                    //- button.btn.btn-secondary.my-2.my-sm-0.mr-sm-2.disabled( tabindex='-1', aria-disabled='true') Register
+                    //- button.btn.btn-secondary.my-2.my-sm-0.mr-sm-2.disabled( tabindex='-1', aria-disabled='true') Login
+
+                    li.nav-item
+                    a.btn.btn-secondary.my-2.my-sm-0.mr-sm-2.nav-link(href='/register', tabindex='-1', aria-disabled='true') Register
+                    li.nav-item
+                    a.btn.btn-primary.my-2.my-sm-0.mr-sm-2.nav-link(href='/login', tabindex='-1', aria-disabled='true') Login
+
+    .container
+        != messages('message', locals)
+        if errors
+            each error, i in errors
+                div(class="alert alert-danger") #{error.msg}
+        block content  
+        br
+        footer
+            hr
+            p Copyright &copy; 2020
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js') 
+    script(src='/js/main.js')

@@ -1,0 +1,20 @@
+extends layout
+block content
+
+  h1 #{title}
+  form(method='post', action= '/register')
+   #form-group 
+     input.form-control(name = 'name', type = 'text' placeholder='Name')
+   #form-group
+    input.form-control(name='email', type='text', placeholder='Email')
+   #form-group
+    input.form-control(name='username', type='text', placeholder='User name')
+   #form-group
+    input.form-control(name='password', type='password', placeholder='Password')
+   #form-group
+    input.form-control(name='repassword', type='password', placeholder='Confirm Password')
+
+    hr
+     
+   #form-group
+    input.btn.btn-primary(type='submit', value='submit') 
